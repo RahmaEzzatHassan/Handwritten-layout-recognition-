@@ -8,5 +8,9 @@ Next, a YOLO (You Only Look Once) model is employed to identify and label the re
 Finally, the processed output is presented to the user in an organized HTML format, allowing for easy review and comprehension of the lecture notes. This integration of deep learning algorithms and postprocessing techniques creates a valuable tool for students, helping to minimize the time waste associated with understanding hastily written lecture notes.</p>
 
 
-Mobile App: 
-https://github.com/omar546/diginote
+##### Mobile App: 
+You can check the mobile app implementaion
+<a href="https://github.com/omar546/diginote">HERE!</a>
+
+
+
