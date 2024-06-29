@@ -21,4 +21,24 @@ following: Gaussian filter, GrayScale, Binarization, Horizontal lines removal, N
 
 4- Contour Detection: Contours are found in the binary mask using cv2.findContours  ,This identifies connected components (contours) in the binary image. Ideally, each line of text would be a separate contour. 
 
- 5- Bounding Box & ROI Extraction: In this step we calculates the bounding rectangle for each contour using cv2.boundingRect, and draws these bounding boxes the image. after that for each bounding box, the ROI is extracted from the original image then each line then pass it to the model .
+5- Bounding Box & ROI Extraction: In this step we calculates the bounding rectangle for each contour using cv2.boundingRect, and draws these bounding boxes the image. after that for each bounding box, the ROI is extracted from the original image then each line then pass it to the model .
+
+### Post Processing
+
+#### Contextual Analysis and Correction:
+##### Dictionary (contextual_corrections):
+
+* Contains mappings from incorrect words to their correct versions based on context.
+* Context is determined by adjacent words (prev_word and next_word).
+* Handles corrections like spelling mistakes, technical terms, and context-specific replacements.
+
+##### Function (contextual_analysis_correction):
+* Takes a text input and splits it into individual words.
+* Checks each word against contextual_corrections for potential corrections based on context.
+* If the word is found in contextual_corrections, it verifies the context with neighboring words (prev_word and next_word).
+* Applies corrections accordingly and reconstructs the corrected text.
+
+##### Filter Lines:
+* Remove any lines of text that start with '0'.
+##### Combine HTML:
+* Combine all HTML content into a single string.
