@@ -1,21 +1,7 @@
-## Fine Tunning
-### 1- Label Definition 
-Define the labels for document layout elements:
-Figure
-Headline
-None
-Subtitle
-### 2- Paths to Dataset 
-Specify the paths to your training and validation datasets:
-train_path: Path to the training dataset images.
-val_path: Path to the validation dataset images.
-### 3- YAML Configuration 
-Create a YAML configuration file for the dataset:
-The data_dict dictionary contains paths to the training and validation datasets, the number of classes (nc), and the names of the classes.
-Save this configuration to a YAML file named your_data.yaml.
-### 4- Load Pre-trained Model
-Load a pre-trained YOLOv8x model from a specified file path.
-### 5- Fine-Tuning the Model 
-Replacing the final classification layer to match the number of classes in the custom dataset.
-Training the model for [70] epochs using a learning rate of [0.001] and a batch size of [14].
-Applying data augmentation techniques such as Brightness, rotation, and flip to improve model generalization.
+ ## Model Architecture
+ 
+ Once the Dataset is prepared, the next step is to design and train a machine-learning model using TensorFlow and CTC loss.
+1. We define the input and output layers: The input layer of the model should be a 4D tensor with dimensions [batch size, width, height, channels], where the batch size is the number of images in a batch, width, and height are the dimensions of the images, and channels are the number of color channels in the images (1 for grayscale, 3 for RGB).
+2. Add the CNN layers: The CNN layers of the model should be responsible for extracting features from the images. A typical architecture for the CNN layers is to use a combination of convolutional, pooling, and fully-connected (dense) layers.
+3. Add the RNN layers: The RNN layers of the model should be responsible for processing the sequence of features and predicting the characters in the text. A common type of RNN to use for this task is a long short-term memory (LSTM) network.
+4. Finally, we compile the model: Once the CNN and RNN layers have been defined, the model can be compiled using the CTC loss function and an optimizer such as Adam
